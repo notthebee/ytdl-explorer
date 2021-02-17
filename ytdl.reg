@@ -1,0 +1,56 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL]
+"MUIVerb"="youtube-dl"
+"SubCommands"=""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell]
+
+
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video_mp4]
+@="Download video (H.264)"
+"Icon"="imageres.dll,18"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video_mp4\command]
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio' '--merge-output-format=mp4' '--no-check-certificate'"
+
+
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video]
+@="Download video (DNxHR 25 FPS)"
+"Icon"="imageres.dll,18"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video\command]
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio' '--no-check-certificate' '--exec=ffmpeg -i {} -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le {}.mov'"
+
+
+
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\audio_wav]
+@="Download audio (WAV)"
+"Icon"="imageres.dll,103"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\audio_wav\command]
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--no-playlist' '--continue' '-f bestaudio' -x --audio-format wav'--no-check-certificate'"
+
+
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\audio]
+@="Download audio (MP3)"
+"Icon"="imageres.dll,103"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\audio\command]
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--no-playlist' '--continue' '-f bestaudio' -x --audio-format mp3 '--no-check-certificate'"
+
+
+
+
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\z_playlist]
+@="Download playlist"
+"Icon"="imageres.dll,97"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\z_playlist\command]
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--yes-playlist' -o '%%(playlist)s/%%(playlist_index)s - %%(title)s.%%(ext)s' '-i' '--continue' '--format=bestvideo+bestaudio' '--merge-output-format=mp4' '--no-check-certificate'"
+@notthebee
