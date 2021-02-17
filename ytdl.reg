@@ -32,7 +32,7 @@ Windows Registry Editor Version 5.00
 "Icon"="imageres.dll,103"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\audio_wav\command]
-@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--no-playlist' '--continue' '-f bestaudio' -x --audio-format wav'--no-check-certificate'"
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--no-playlist' '--continue' '-f bestaudio' -x --audio-format wav '--no-check-certificate'"
 
 
 
