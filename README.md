@@ -1,5 +1,5 @@
 # Youtube-DL Windows Explorer Integration
-Download videos from YouTube/Twitch/Twitter right in the Windows Explorer, without installing any shady shareware apps!
+Download videos from YouTube/Twitch/Twitter and more (any platform that is supported by youtube-dl) right in the Windows Explorer, without installing any shady shareware apps!
 
 ![Screenshot](https://user-images.githubusercontent.com/30384331/108196593-2ee3dd00-7111-11eb-955b-a2f3c29f58cc.png)
 
