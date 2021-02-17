@@ -1,0 +1,38 @@
+Windows Registry Editor Version 5.00
+; BONUS: Windows Explorer ffmpeg converter!
+; Does the same thing as ytdl but with already existing files
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg]
+"MUIVerb"="ffmpeg"
+"SubCommands"=""
+"MultiSelectModel"="Document"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\audio_wav]
+@="Convert to WAV"
+"Icon"="imageres.dll,103"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\audio_wav\command]
+@="powershell -Command ffmpeg -i '%1' '%1_conv.wav'"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\audio_mp3]
+@="Convert to MP3"
+"Icon"="imageres.dll,103"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\audio_mp3\command]
+@="powershell -Command ffmpeg -i '%1' '%1_conv.mp3'"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\video_dnxhr]
+@="Convert to DNxHR 25 FPS"
+"Icon"="imageres.dll,18"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\video_dnxhr\command]
+@="powershell -Command ffmpeg -i '%1' -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le '%1_conv.mov'"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\video_mp4]
+@="Convert to MP4 H.264"
+"Icon"="imageres.dll,18"
+
+[HKEY_CLASSES_ROOT\*\shell\ffmpeg\shell\video_mp4\command]
+@="powershell.exe -Command ffmpeg -i '%1' '%1_conv.mp4'"
