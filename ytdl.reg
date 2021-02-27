@@ -13,7 +13,7 @@ Windows Registry Editor Version 5.00
 "Icon"="imageres.dll,18"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video_mp4\command]
-@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio' '--merge-output-format=mp4' '--no-check-certificate'"
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio[ext=m4a]' '--merge-output-format=mp4' '--no-check-certificate'"
 
 
 
@@ -22,7 +22,7 @@ Windows Registry Editor Version 5.00
 "Icon"="imageres.dll,18"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video\command]
-@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio' '--no-check-certificate' '--exec=ffmpeg -i {} -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le {}.mov'"
+@="powershell.exe -NoExit -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio' '--no-check-certificate' '--exec=ffmpeg -i {} -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le {}.mov & del {}'"
 
 
 
