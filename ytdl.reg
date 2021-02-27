@@ -13,7 +13,7 @@ Windows Registry Editor Version 5.00
 "Icon"="imageres.dll,18"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL\shell\video_mp4\command]
-@="powershell.exe -NoExit -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio[ext=m4a]/best' '--merge-output-format=mp4' '--no-check-certificate'"
+@="powershell.exe -Command youtube-dl $(Get-Clipboard) '--continue' '--format=bestvideo+bestaudio[ext=m4a]/best' '--merge-output-format=mp4' '--no-check-certificate'"
 
 
 
