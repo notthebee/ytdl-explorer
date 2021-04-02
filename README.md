@@ -1,7 +1,7 @@
 # youtube-dl and ffmpeg Windows Explorer Integration
 Download videos from YouTube/Twitch/Twitter and more (any platform that is supported by youtube-dl) right in the Windows Explorer, without installing any shady shareware apps!
 
-![Screenshot](res/screenshot.png)
+![Screenshot](res/1.png)
 
 I made this script for myself, since I reference other YouTube videos and memes a lot in my own content and needed an easy way to download videos in an editing-friedly format (DNxHR 25 FPS in my case). The script will also update youtube-dl automatically if a new version is detected.
 
