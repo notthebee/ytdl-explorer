@@ -17,9 +17,10 @@ class RegGenerator():
         @="powershell.exe -Command
         \\"$latest = Invoke-WebRequest -Uri https://github.com/ytdl-org/youtube-dl/releases/latest -Method get -MaximumRedirection 0 -ErrorAction Ignore;
         $latest = ($latest.headers.location -split '/')[-1];
-        $current = youtube-dl --version; if($current -ne $latest) { Write-Output 'Youtube-DL needs to be updated. Please grant the administrator privileges in the next dialog. This is a one-time process';
+        $current = youtube-dl --version; if($current -ne $latest) { Write-Output 'Youtube-DL needs to be updated. Please grant the administrator privileges in the next dialog.';
         Start-Sleep -s 5;
-        start-process powershell.exe '-Command youtube-dl -U' -Verb RunAs -Wait};
+        start-process powershell.exe '-Command Write-Host \\"Please wait while youtube-dl is being updated. The process might take a couple of minutes depending on your Internet connection. This is a one-time process\\";
+        youtube-dl -U' -Verb RunAs -Wait};
         youtube-dl $(Get-Clipboard) 
         --continue
         --no-check-certificate
@@ -63,13 +64,13 @@ class RegGenerator():
                     @="Best quality"
 
                     [{rrdc}\\a_best\\command]
-                    {command_common} --format=bestvideo+bestaudio[ext=m4a]/best --merge-output-format=mp4 {command_end}
+                    {command_common} --format=bestvideo+bestaudio[ext=m4a]/best --recode-video --merge-output-format=mp4 {command_end}
 
                     [{rrdc}\\b_1080p]
                     @="1080p"
 
                     [{rrdc}\\b_1080p\\command]
-                    {command_common} --format=bestvideo[height<=1080]+bestaudio[ext=m4a]/best --merge-output-format=mp4 -o '%%(title)s_1080.%%(ext)s' {command_end}
+                    {command_common} --format=bestvideo[height<=1080]+bestaudio[ext=m4a]/best --recode-video --merge-output-format=mp4 -o '%%(title)s_1080.%%(ext)s' {command_end}
 
                     [{rrdc}\\c_720p]
                     @="720p"
