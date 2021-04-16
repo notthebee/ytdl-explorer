@@ -15,7 +15,7 @@ class RegGenerator():
         self.command_common = \
         """
         @="powershell.exe -Command
-        \\"$latest = Invoke-WebRequest -Uri https://github.com/ytdl-org/youtube-dl/releases/latest -Method get -MaximumRedirection 0 -ErrorAction Ignore;
+        \\"$latest = Invoke-WebRequest -Uri https://github.com/ytdl-org/youtube-dl/releases/latest -Method get -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore;
         $latest = ($latest.headers.location -split '/')[-1];
         $current = youtube-dl --version; if($current -ne $latest) { Write-Output 'Youtube-DL needs to be updated. Please grant the administrator privileges in the next dialog.';
         Start-Sleep -s 5;
