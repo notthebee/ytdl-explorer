@@ -1,4 +1,5 @@
 from textwrap import dedent
+import os
 from string import ascii_lowercase
 
 class RegGenerator():
@@ -47,8 +48,6 @@ class RegGenerator():
         self.start = dedent(self.start)
 
     def gen_all(self):
-        
-
         types_string = ""
         count = 0
         for type, subtypes in self.types.items():
@@ -91,7 +90,9 @@ class RegGenerator():
             types_string += "\n" + result_string
             count += 1
         result = self.start + types_string
-        with open("ytdl.reg", "w+") as regfile:
+        cwd = os.path.dirname(os.path.realpath(__file__))
+        file = os.path.join(cwd, 'ytdl.reg')
+        with open(file, "w+") as regfile:
             regfile.write(result.strip())
         
 
