@@ -6,7 +6,7 @@ class RegGenerator():
     def __init__(self):
         self.types = {
             "h264": {'options': '', 'icon': 18, 'subformats':True, 'name': 'Download video (H.264)'},
-            "dnxhr": {'options': '--format=bestvideo+bestaudio --exec=\'ffmpeg -i {} -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le {}.mov & del {}\'', 'icon': 41, 'subformats': False, 'name': 'Download video (DNxHR 25 FPS)'},
+            "dnxhr": {'options': '--format=bestvideo+bestaudio --exec=\'ffmpeg -i {} -c:v dnxhd -profile:v dnxhr_lb -vf fps=25/1,format=yuv422p -c:a pcm_s16le {}.mov & del {}\'', 'icon': 41, 'subformats': False, 'name': 'Download video (DNxHR 25 FPS)'},
             "mp3": {'options': '--continue -f bestaudio -x --audio-format mp3', 'icon': 103, 'subformats': False, 'name': 'Download audio (MP3)'},
             "wav": {'options': '--continue -f bestaudio -x --audio-format wav', 'icon': 80, 'subformats': False, 'name': 'Download audio (WAV)'},
             "playlist": {'options': '--yes-playlist -o \'%%(playlist)s/%%(playlist_index)s - %%(title)s.%%(ext)s\' -i --continue --format=bestvideo+bestaudio[ext=m4a]/best --merge-output-format=mp4', 'icon': 97, 'subformats': False, 'name': 'Download playlist (H.264)'},
