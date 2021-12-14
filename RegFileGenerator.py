@@ -18,7 +18,7 @@ class RegGenerator():
         @="powershell.exe -Command
         \\"$latest = Invoke-WebRequest -Uri https://github.com/yt-dlp/yt-dlp/releases/latest -Method get -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore;
         $latest = ($latest.headers.location -split '/')[-1];
-        $current = yt-dlp --version; if($current -ne $latest) { Write-Output 'Youtube-DLP needs to be updated. Please grant the administrator privileges in the next dialog.';
+        $current = yt-dlp --version; if($current -ne $latest) { Write-Output 'yt-dlp needs to be updated. Please grant the administrator privileges in the next dialog.';
         Start-Sleep -s 5;
         start-process powershell.exe '-Command Write-Host \\"Please wait while yt-dlp is being updated. The process might take a couple of minutes depending on your Internet connection. This is a one-time process\\";
         yt-dlp -U' -Verb RunAs -Wait};
