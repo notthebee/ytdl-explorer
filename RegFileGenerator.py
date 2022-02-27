@@ -91,7 +91,7 @@ class RegGenerator():
             count += 1
         result = self.start + types_string
         cwd = os.path.dirname(os.path.realpath(__file__))
-        file = os.path.join(cwd, 'ytdl.reg')
+        file = os.path.join(cwd, 'yt-dlp.reg')
         with open(file, "w+") as regfile:
             regfile.write(result.strip())
         
