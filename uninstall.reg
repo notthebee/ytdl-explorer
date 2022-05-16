@@ -4,3 +4,6 @@ Windows Registry Editor Version 5.00
 
 ; Deleting Youtube-DL
 [-HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL]
+
+; Deleting YT-DLP
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\YT-DLP]

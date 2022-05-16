@@ -12,17 +12,17 @@ class RegGenerator():
             "playlist": {'options': '--yes-playlist -o \'%%(playlist)s/%%(playlist_index)s - %%(title)s.%%(ext)s\' -i --continue --format=bestvideo+bestaudio[ext=m4a]/best --merge-output-format=mp4', 'icon': 97, 'subformats': False, 'name': 'Download playlist (H.264)'},
             "playlist_mp3": {'options': '--yes-playlist -o \'%%(playlist)s/%%(playlist_index)s - %%(title)s.%%(ext)s\' -i --continue --format=bestaudio -x --audio-format mp3', 'icon': 128, 'subformats': False, 'name': 'Download playlist (MP3)'},
         }
-        self.reg_common = "HKEY_CLASSES_ROOT\Directory\Background\shell\YoutubeDL"
+        self.reg_common = "HKEY_CLASSES_ROOT\Directory\Background\shell\YT-DLP"
         self.command_common = \
         """
         @="powershell.exe -Command
-        \\"$latest = Invoke-WebRequest -Uri https://github.com/ytdl-org/youtube-dl/releases/latest -Method get -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore;
+        \\"$latest = Invoke-WebRequest -Uri https://github.com/yt-dlp/yt-dlp/releases/latest -Method get -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore;
         $latest = ($latest.headers.location -split '/')[-1];
-        $current = youtube-dl --version; if($current -ne $latest) { Write-Output 'Youtube-DL needs to be updated. Please grant the administrator privileges in the next dialog.';
+        $current = yt-dlp --version; if($current -ne $latest) { Write-Output 'yt-dlp needs to be updated. Please grant the administrator privileges in the next dialog.';
         Start-Sleep -s 5;
-        start-process powershell.exe '-Command Write-Host \\"Please wait while youtube-dl is being updated. The process might take a couple of minutes depending on your Internet connection. This is a one-time process\\";
-        youtube-dl -U' -Verb RunAs -Wait};
-        youtube-dl $(Get-Clipboard) 
+        start-process powershell.exe '-Command Write-Host \\"Please wait while yt-dlp is being updated. The process might take a couple of minutes depending on your Internet connection. This is a one-time process\\";
+        yt-dlp -U' -Verb RunAs -Wait};
+        yt-dlp $(Get-Clipboard) 
         --continue
         --no-check-certificate
         """
@@ -39,7 +39,7 @@ class RegGenerator():
 
 
         [{reg_common}]
-        "MUIVerb"="youtube-dl"
+        "MUIVerb"="yt-dlp"
         "SubCommands"=""
 
         [{reg_common}\shell]
@@ -91,7 +91,7 @@ class RegGenerator():
             count += 1
         result = self.start + types_string
         cwd = os.path.dirname(os.path.realpath(__file__))
-        file = os.path.join(cwd, 'ytdl.reg')
+        file = os.path.join(cwd, 'yt-dlp.reg')
         with open(file, "w+") as regfile:
             regfile.write(result.strip())
         
